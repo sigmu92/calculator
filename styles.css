@@ -1,0 +1,41 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.calculator {
+    height: 50vw;
+    width: 40vw;
+    background-color: lightblue;
+}
+
+.output {
+    width: 100%;
+    height: 20%;
+    background-color: lightcoral;
+    text-align: right;
+}
+
+.calc-buttons {
+    display:flex;
+    height:80%;
+}
+
+.numbers {
+    width: 80%;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25%;
+}
+
+.number {
+    
+}
