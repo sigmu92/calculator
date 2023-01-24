@@ -1,88 +1,95 @@
+:root {
+    --background-col: #7395AE;
+    --calc-color: #b1a296;
+    --screen-color: #379683;
+    --spcl-button-color: #f3d250;
+    --op-button-color: #b1a296;
+    --num-button-color: #24305E;
+}
+
+
 body {
+    font-family: sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
+    background-color: var(--background-col);
 }
 
 .calculator {
     height: 50vw;
     width: 40vw;
-    background-color: lightblue;
+    background-color: var(--calc-color);
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 1px;
 }
 
 .output {
-    
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     height: 20%;
-    background-color: lightcoral;
-    text-align: right;
-    font-size: 100px;
+    width:95%;
+    background-color: #379683;
+    font-size: 10vw;
     padding-right: 10px;
-    padding-top: 0px;
-    font-kerning: none;
+    margin: 5px;
+    border-style: none;
+    border-radius: 3px;
 }
 
 .calc-buttons {
     display:flex;
-    height:80%;
-}
-
-.numbers {
-    background-color: azure;
-    width: 80%;
-    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 80%;
+    
 }
 
 .row {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 25%;
+    height: 19%;
 }
 
-.number {
-    background-color: lightgreen;
+.push-button {
+    background-color: var(--basic-button-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    width:20%;
-    height: 80%;
+    width:21%;
+    height: 85%;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px black;
+    font-size: 4vw;
 }
 
-.operators{
-    width: 20%;
-    height: 100%;
-    background-color: antiquewhite;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;   
-}
-
-.operator {
-    background-color: lightseagreen;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 10%;
+.basic {
+    background-color: var(--num-button-color);
+    box-shadow: black;
+    border-color: black;
+    color: white;
+    font-weight: 900;
+    
 }
 
 .clear {
-    background-color: lightslategray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 10%;
+    background-color: var(--spcl-button-color);
+    
 }
 
 .equal {
-    background-color: lightslategray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 10%;
+    background-color: var(--spcl-button-color);
+
+}
+
+.depressed {
+    opacity: 70%;
+    box-shadow: 2px 2px 2px;           
 }

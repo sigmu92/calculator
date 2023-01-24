@@ -75,6 +75,9 @@ function compute(e){
 }
 
 function crunch() {
+    if (firstNum == "") {
+        return
+    }
     let num1 = parseInt(firstNum);
     let num2 = 0;
     if (secondNum == "") {
@@ -91,6 +94,7 @@ function crunch() {
 
 
 function clear() {
+    
     displayNum = "0"
     firstNum = ""
     secondNum = ""
@@ -98,7 +102,19 @@ function clear() {
     updateDisplay(displayNum)
 }
 
+function depressed(e){
+    let button = e.target;
+    button.classList.add('depressed')
+}
 
+function released(e){
+    let button = e.target;
+    button.classList.remove('depressed')
+
+}
+const pushButtons = document.querySelectorAll('.push-button');
+pushButtons.forEach(button => button.addEventListener('mousedown', depressed))
+pushButtons.forEach(button => button.addEventListener('mouseup', released))
 
 const numbers = document.querySelectorAll('.number');
 numbers.forEach(number => number.addEventListener('click', retreiveNum));
