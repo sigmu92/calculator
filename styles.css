@@ -77,3 +77,12 @@ body {
     width: 50%;
     height: 10%;
 }
+
+.equal {
+    background-color: lightslategray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 10%;
+}

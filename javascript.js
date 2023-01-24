@@ -56,7 +56,6 @@ function error() {
 
 function retreiveNum(e){
     let inputData = e.target.textContent
-    console.log(selectedOp)
     if (selectedOp == "") {
         firstNum += inputData
         updateDisplay(firstNum);
@@ -67,29 +66,28 @@ function retreiveNum(e){
 }
 
 function compute(e){
-    console.log(e)
     if (selectedOp == "") {
         selectedOp = e.target.textContent
     }   else {
-        let num1 = parseInt(firstNum);
-        let num2 = 0;
-        if (secondNum == "") {
-            num2 = num1;
-        } else {
-            num2 = parseInt(secondNum)
-        }
-        
-        num1 = operate(selectedOp,num1,num2);
-        firstNum = num1.toString();
-        secondNum = ""
+        crunch()
         selectedOp = e.target.textContent;
-        console.log(firstNum)
-        updateDisplay(firstNum)
-    }
-    
+    }  
 }
 
-
+function crunch() {
+    let num1 = parseInt(firstNum);
+    let num2 = 0;
+    if (secondNum == "") {
+        num2 = num1;
+    } else {
+        num2 = parseInt(secondNum)
+    }
+    num1 = operate(selectedOp,num1,num2);
+    firstNum = num1.toString();
+    secondNum = ""
+    selectedOp = ""
+    updateDisplay(firstNum)
+}
 
 
 function clear() {
@@ -112,5 +110,9 @@ const outputDisplay = document.querySelector('.output')
 
 const clearButton = document.querySelector('.clear')
 clearButton.addEventListener('click', clear);
+
+const equalButton = document.querySelector('.equal');
+equalButton.addEventListener('click', crunch)
+
 
 window.addEventListener('load', updateDisplay("0"))
