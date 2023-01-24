@@ -113,8 +113,15 @@ function released(e){
 
 }
 const pushButtons = document.querySelectorAll('.push-button');
-pushButtons.forEach(button => button.addEventListener('mousedown', depressed))
-pushButtons.forEach(button => button.addEventListener('mouseup', released))
+pushButtons.forEach(function(button) {
+    button.addEventListener('mousedown', depressed)
+    button.addEventListener('mouseup', released)
+
+})
+
+
+ 
+
 
 const numbers = document.querySelectorAll('.number');
 numbers.forEach(number => number.addEventListener('click', retreiveNum));

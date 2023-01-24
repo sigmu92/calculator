@@ -71,6 +71,10 @@ body {
     font-size: 4vw;
 }
 
+.push-button:hover {
+    opacity: 90%;
+}
+
 .basic {
     background-color: var(--num-button-color);
     box-shadow: 1px 1px 1px black;
@@ -91,6 +95,6 @@ body {
 }
 
 .depressed {
-    opacity: 70%;
+    
     box-shadow: 2px 2px 2px black;           
 }
