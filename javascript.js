@@ -94,12 +94,12 @@ function crunch() {
     if (firstNum == "") {
         return
     }
-    let num1 = parseInt(firstNum);
+    let num1 = parseFloat(firstNum);
     let num2 = 0;
     if (secondNum == "") {
         num2 = num1;
     } else {
-        num2 = parseInt(secondNum)
+        num2 = parseFloat(secondNum)
     }
     num1 = Math.round(1000 * operate(selectedOp,num1,num2)) / 1000;
     firstNum = num1.toString();
@@ -113,12 +113,12 @@ function crunch() {
 function changeSign() {
     let number = outputDisplay.textContent
     if (number == firstNum) {
-        let num = parseInt(firstNum)
+        let num = parseFloat(firstNum)
         num *= -1;
         firstNum = num.toString()
         updateDisplay(firstNum)
     } else {
-        let num = parseInt(secondNum)
+        let num = parseFloat(secondNum)
         num *= -1;
         secondNum = num.toString()
         updateDisplay(secondNum)
@@ -143,6 +143,29 @@ function backSpace() {
     } else {
         secondNum = secondNum.slice(0, secondNum.length - 1)
         updateDisplay(secondNum)
+    }
+}
+
+function decimalAdd() {
+    let number = outputDisplay.textContent
+    if (number == firstNum) {
+        let chars = firstNum.split("");
+        if (chars.includes(".")) {
+            return
+        } else {
+            chars.push('.')
+            firstNum = chars.join("")
+            updateDisplay(firstNum)
+        }
+    } else {
+        let chars = secondNum.split("");
+        if (chars.includes(".")) {
+            return
+        } else {
+            chars.push('.')
+            secondNum = chars.join("")
+            updateDisplay(secondNum)
+        }
     }
 }
 
@@ -181,5 +204,8 @@ plusMinus.addEventListener('click', changeSign)
 
 const backspace = document.querySelector('.backspace')
 backspace.addEventListener("click", backSpace)
+
+const decimal = document.querySelector('.dot');
+decimal.addEventListener("click", decimalAdd);
 
 window.addEventListener('load', updateDisplay("0"))
