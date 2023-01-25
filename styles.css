@@ -3,7 +3,7 @@
     --calc-color: #b1a296;
     --screen-color: #379683;
     --spcl-button-color: #f3d250;
-    --op-button-color: #b1a296;
+    --op-button-color: white;
     --num-button-color: #24305E;
 }
 
@@ -40,6 +40,7 @@ body {
     box-shadow: 0px 0px 2px;    
     border-style: none;
     border-radius: 3px;
+    overflow: hidden;
 }
 
 .calc-buttons {
@@ -84,17 +85,21 @@ body {
     
 }
 
-.clear {
-    background-color: var(--spcl-button-color);
-    
+.operator {
+    background-color: var(--op-button-color);
 }
 
-.equal {
+.special {
     background-color: var(--spcl-button-color);
-
 }
 
-.depressed {
-    
+.selected {
+    background-color: black;
+    color: white;
+    border-color: black;
+    box-shadow: 2px 2px 2px black;
+}
+
+.depressed {   
     box-shadow: 2px 2px 2px black;           
 }

@@ -66,12 +66,26 @@ function retreiveNum(e){
 }
 
 function compute(e){
+    
     if (selectedOp == "") {
         selectedOp = e.target.textContent
     }   else {
         crunch()
         selectedOp = e.target.textContent;
     }  
+    opSel()
+}
+
+function opSel(){
+    operators.forEach(function(operator) {
+        if (operator.textContent==selectedOp){
+            operator.classList.add("selected")
+        }
+    })
+}
+
+function opDel(){
+    operators.forEach(operator => operator.classList.remove("selected"))
 }
 
 function crunch() {
@@ -85,21 +99,49 @@ function crunch() {
     } else {
         num2 = parseInt(secondNum)
     }
-    num1 = operate(selectedOp,num1,num2);
+    num1 = Math.round(1000 * operate(selectedOp,num1,num2)) / 1000;
     firstNum = num1.toString();
     secondNum = ""
+    opDel()
     selectedOp = ""
+    
     updateDisplay(firstNum)
+}
+
+function changeSign() {
+    let number = outputDisplay.textContent
+    if (number == firstNum) {
+        let num = parseInt(firstNum)
+        num *= -1;
+        firstNum = num.toString()
+        updateDisplay(firstNum)
+    } else {
+        let num = parseInt(secondNum)
+        num *= -1;
+        secondNum = num.toString()
+        updateDisplay(secondNum)
+    }
 }
 
 
 function clear() {
-    
     displayNum = "0"
     firstNum = ""
     secondNum = ""
     selectedOp = ""
     updateDisplay(displayNum)
+    opDel()
+}
+
+function backSpace() {
+    let number = outputDisplay.textContent
+    if (number == firstNum) {
+        firstNum = firstNum.slice(0, firstNum.length - 1)
+        updateDisplay(firstNum)
+    } else {
+        secondNum = secondNum.slice(0, secondNum.length - 1)
+        updateDisplay(secondNum)
+    }
 }
 
 function depressed(e){
@@ -116,12 +158,7 @@ const pushButtons = document.querySelectorAll('.push-button');
 pushButtons.forEach(function(button) {
     button.addEventListener('mousedown', depressed)
     button.addEventListener('mouseup', released)
-
 })
-
-
- 
-
 
 const numbers = document.querySelectorAll('.number');
 numbers.forEach(number => number.addEventListener('click', retreiveNum));
@@ -137,5 +174,10 @@ clearButton.addEventListener('click', clear);
 const equalButton = document.querySelector('.equal');
 equalButton.addEventListener('click', crunch)
 
+const plusMinus = document.querySelector('.plus-minus');
+plusMinus.addEventListener('click', changeSign)
+
+const backspace = document.querySelector('.backspace')
+backspace.addEventListener("click", backSpace)
 
 window.addEventListener('load', updateDisplay("0"))
