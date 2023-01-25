@@ -66,7 +66,9 @@ function retreiveNum(e){
 }
 
 function compute(e){
-    
+    if (firstNum == "" ){
+        return
+    }
     if (selectedOp == "") {
         selectedOp = e.target.textContent
     }   else {
