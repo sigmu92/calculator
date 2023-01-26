@@ -5,6 +5,7 @@
     --spcl-button-color: #f3d250;
     --op-button-color: white;
     --num-button-color: #24305E;
+    cursor: default;    
 }
 
 
@@ -89,6 +90,8 @@ body {
     font-weight: 900;
     
 }
+
+
 
 .operator {
     background-color: var(--op-button-color);
