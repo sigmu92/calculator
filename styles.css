@@ -76,6 +76,11 @@ body {
     opacity: 90%;
 }
 
+.push-button:active {
+    opacity: 70%;
+    box-shadow: 2px 2px 2px black;  
+}
+
 .basic {
     background-color: var(--num-button-color);
     box-shadow: 1px 1px 1px black;
@@ -91,6 +96,11 @@ body {
 
 .special {
     background-color: var(--spcl-button-color);
+}
+
+.empty {
+    width:21%;
+    height: 85%;
 }
 
 .selected {
